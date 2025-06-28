@@ -1,21 +1,22 @@
 extends Node2D
 
 
-const MAX_SAFE_OBSTACLES = 10
+const MAX_SAFE_OBSTACLES = 20
 const START_OBSTACLE_X = 125
 const BALLOON_Y = 125
-const OBSTACLE_SPACING = 30
+const OBSTACLE_SPACING = 100
 
 const BIRD_SPAWN_TIMER = 1#15
 const BIRD_SPAWN_OFFSET = 0#5
 const INITIAL_BIRD_SPAWN_OFFSET = 0#10
+const BIRD_SPACING = 500
 
 const BALLOON = preload("res://scenes/bloon.tscn")
 const CLOUD = preload("res://scenes/cloud.tscn")
 const BIRD = preload("res://scenes/bird.tscn")
 
 @onready var player: Player = $Player
-@onready var camera: Camera2D = $Player/Camera2D
+@onready var camera: Camera2D = $Camera2D
 
 var obstacle_offset: float = START_OBSTACLE_X
 var time_since_bird_spawn: float = 0.0
@@ -36,6 +37,7 @@ func _process(delta: float) -> void:
 	if time_since_bird_spawn >= next_bird_spawn_time:
 		spawn_new_bird()
 		set_bird_spawn_time()
+	camera.position.x = player.position.x
 
 
 func generate_first_obstacles() -> void:
@@ -77,7 +79,7 @@ func spawn_new_balloon_or_cloud() -> void:
 
 func spawn_new_bird() -> void:
 	var new_bird = create_new_bird()
-	new_bird.position.x = 500 # Player.position.x + offset
+	new_bird.position.x = player.position.x + BIRD_SPACING
 	new_bird.position.y = randi_range(0, 500)
 
 
