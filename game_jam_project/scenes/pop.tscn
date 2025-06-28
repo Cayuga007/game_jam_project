@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cep2emkob747i"]
+[gd_scene load_steps=0 format=3 uid="uid://cep2emkob747i"]
 
 [node name="Pop" type="CPUParticles2D"]
 emitting = false

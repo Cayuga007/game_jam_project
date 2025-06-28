@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://jf5tes0vku3a"]
+[gd_scene load_steps=8 format=3 uid="uid://cw5544bdxjwjl"]
 
-[ext_resource type="Script" uid="uid://yh4745k6358e" path="res://scripts/obstacle_generation.gd" id="1_lnu2h"]
+[ext_resource type="Script" path="res://scripts/obstacle_generation.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cgcwfwemxukqg" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b57ysjwdty161" path="res://assets/sprites/GandalfHardcore City Tiles/Building Tiles 32x32.png" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://cead32xdai7ei" path="res://assets/sprites/GandalfHardcore City Tiles/City background.png" id="2_lbhrr"]
