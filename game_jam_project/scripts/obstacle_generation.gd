@@ -15,21 +15,29 @@ const BALLOON = preload("res://scenes/bloon.tscn")
 const CLOUD = preload("res://scenes/cloud.tscn")
 const BIRD = preload("res://scenes/bird.tscn")
 
+@onready var origin: Node2D = $Origin
 @onready var player: Player = $Player
 @onready var camera: Camera2D = $Camera2D
+@onready var ui: CanvasLayer = $UI
+@onready var killzone: Area2D = $Killzone
 
 var obstacle_offset: float = START_OBSTACLE_X
 var time_since_bird_spawn: float = 0.0
 var next_bird_spawn_time: float = 0.0
+var distance_travelled: int = 0
 
 
 func _ready() -> void:
+	player.position = origin.position
 	generate_first_obstacles()
 	set_bird_spawn_time()
 	next_bird_spawn_time += INITIAL_BIRD_SPAWN_OFFSET
 	
 	player.obstacle_hit.connect(func():
 		spawn_new_balloon_or_cloud())
+	killzone.lost.connect(func():
+		player.lost = true
+		ui.update_score(distance_travelled))
 
 
 func _process(delta: float) -> void:
@@ -38,6 +46,8 @@ func _process(delta: float) -> void:
 		spawn_new_bird()
 		set_bird_spawn_time()
 	camera.position.x = player.position.x
+	distance_travelled = clamp((player.position.x - origin.position.x) / 100, 0, 100000)
+	ui.get_node("DistanceLabel").text = "Distance: " + str(distance_travelled) + "m"
 
 
 func generate_first_obstacles() -> void:

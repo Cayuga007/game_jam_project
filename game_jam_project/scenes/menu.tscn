@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhke2wkovce3b"]
+[gd_scene load_steps=3 format=3 uid="uid://dhke2wkovce3b"]
 
 [ext_resource type="Script" uid="uid://dutctmjjap6rn" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://cead32xdai7ei" path="res://assets/sprites/GandalfHardcore City Tiles/City background.png" id="2_vjb58"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+
+[node name="Building" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 97.0
+offset_right = 164.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Temp name here"
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
