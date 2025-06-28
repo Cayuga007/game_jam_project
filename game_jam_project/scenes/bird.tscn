@@ -1,20 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://5p3ehwkbfyci"]
+[gd_scene load_steps=11 format=3 uid="uid://5p3ehwkbfyci"]
 
-[ext_resource type="Script" uid="uid://usybctlonrmp" path="res://scripts/bird.gd" id="1_g5k2s"]
-[ext_resource type="Texture2D" uid="uid://bs8w3nq8hhlgb" path="res://icon.svg" id="2_crnqq"]
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_g5k2s"]
+[ext_resource type="Texture2D" uid="uid://cppcbjw516isn" path="res://assets/sprites/birt_1.png" id="2_3po83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq4t0"]
+atlas = ExtResource("2_3po83")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twsrt"]
+atlas = ExtResource("2_3po83")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7mtg"]
+atlas = ExtResource("2_3po83")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdh3x"]
+atlas = ExtResource("2_3po83")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jggmu"]
+atlas = ExtResource("2_3po83")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrcfq"]
+atlas = ExtResource("2_3po83")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehebh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq4t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twsrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7mtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdh3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jggmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrcfq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3po83"]
+radius = 21.0
 
 [node name="Bird" type="CharacterBody2D"]
 script = ExtResource("1_g5k2s")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_crnqq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_ehebh")
+autoplay = "default"
+frame_progress = 0.0939287
+speed_scale = 0.8
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.500002, 0.499999)
-scale = Vector2(1.25, 1.25)
+position = Vector2(2.38419e-07, -2.38419e-07)
+scale = Vector2(2.69544, 2.62775)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_3po83")

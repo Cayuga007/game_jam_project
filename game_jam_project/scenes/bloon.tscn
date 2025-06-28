@@ -1,7 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://2xqdwui4o5qa"]
+[gd_scene load_steps=19 format=3 uid="uid://2xqdwui4o5qa"]
 
 [ext_resource type="Script" uid="uid://bfwkm20dmhg4n" path="res://scripts/balloon.gd" id="1_emhme"]
 [ext_resource type="Texture2D" uid="uid://pf1w8e4kdlfu" path="res://assets/sprites/Bloon.png" id="1_w75no"]
+[ext_resource type="Texture2D" uid="uid://jher1v1e4q87" path="res://assets/sprites/balloon_blue.png" id="2_whsaj"]
+[ext_resource type="Texture2D" uid="uid://bb3mr7cr1sqim" path="res://assets/sprites/Balloon_yellow.png" id="4_3jygb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opfix"]
+atlas = ExtResource("2_whsaj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogyvl"]
+atlas = ExtResource("2_whsaj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7735"]
+atlas = ExtResource("2_whsaj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vs88"]
+atlas = ExtResource("2_whsaj")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emhme"]
 atlas = ExtResource("1_w75no")
@@ -19,8 +37,41 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("1_w75no")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcrvf"]
+atlas = ExtResource("4_3jygb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulg2l"]
+atlas = ExtResource("4_3jygb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb8dc"]
+atlas = ExtResource("4_3jygb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnpmw"]
+atlas = ExtResource("4_3jygb")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_opfix"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opfix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogyvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7735")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vs88")
+}],
+"loop": true,
+"name": &"Blue_Bloon",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_emhme")
@@ -35,20 +86,38 @@ animations = [{
 "texture": SubResource("AtlasTexture_3jygb")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Red_Bloon",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcrvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulg2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb8dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnpmw")
+}],
+"loop": true,
+"name": &"Yellow_Bloon",
 "speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogyvl"]
 radius = 17.0
 
-[node name="Bloon" type="CharacterBody2D"]
+[node name="bloon" type="CharacterBody2D"]
 script = ExtResource("1_emhme")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_opfix")
-animation = &"Idle"
-frame_progress = 0.00412309
+animation = &"Blue_Bloon"
+autoplay = "Red_Bloon"
+frame_progress = 0.805048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
