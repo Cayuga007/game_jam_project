@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl5fj3nahx5pe"]
+
+[ext_resource type="Script" uid="uid://yh4745k6358e" path="res://obstacle_generation.gd" id="1_cmakl"]
+
+[node name="ObstacleGeneration" type="Node2D"]
+script = ExtResource("1_cmakl")

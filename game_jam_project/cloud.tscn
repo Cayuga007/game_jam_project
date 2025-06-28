@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://drc7fuo6n5y48"]
+
+[ext_resource type="Script" uid="uid://kp50mi7oo8nx" path="res://cloud.gd" id="1_4rphk"]
+[ext_resource type="Texture2D" uid="uid://bs8w3nq8hhlgb" path="res://icon.svg" id="2_b3oxr"]
+
+[node name="Cloud" type="Node2D"]
+script = ExtResource("1_4rphk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_b3oxr")
