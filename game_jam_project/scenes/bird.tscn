@@ -71,5 +71,4 @@ position = Vector2(2.38419e-07, -2.38419e-07)
 scale = Vector2(2.69544, 2.62775)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_3po83")

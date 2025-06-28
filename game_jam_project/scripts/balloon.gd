@@ -10,6 +10,7 @@ const YELLOW_SPEED = 30
 var balloon_type: BalloonType
 var rise_speed: float
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	var random_type = randi_range(0, 2)
@@ -17,12 +18,15 @@ func _ready() -> void:
 		BalloonType.RED:
 			balloon_type = BalloonType.RED
 			rise_speed = RED_SPEED
+			animated_sprite.play("Red_Bloon")
 		BalloonType.BLUE:
 			balloon_type = BalloonType.BLUE
 			rise_speed = BLUE_SPEED
+			animated_sprite.play("Blue_Bloon")
 		BalloonType.YELLOW:
 			balloon_type = BalloonType.YELLOW
 			rise_speed = YELLOW_SPEED
+			animated_sprite.play("Yellow_Bloon")
 
 
 func _process(delta: float) -> void:
