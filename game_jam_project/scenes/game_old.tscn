@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://lbw4p7rlc5dk"]
+
+[ext_resource type="Script" uid="uid://yh4745k6358e" path="res://scripts/obstacle_generation.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cgcwfwemxukqg" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://bs8w3nq8hhlgb" path="res://icon.svg" id="2_yqjtg"]
+
+[sub_resource type="TileSet" id="TileSet_uwrxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
+size = Vector2(125, 125)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lnu2h")
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(92, 65)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_uwrxv")
+format = 2
+
+[node name="StartingPlatform" type="Sprite2D" parent="."]
+position = Vector2(35, 122)
+scale = Vector2(1, 0.68)
+texture = ExtResource("2_yqjtg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StartingPlatform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPlatform/StaticBody2D"]
+shape = SubResource("RectangleShape2D_yqjtg")
