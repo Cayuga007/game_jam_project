@@ -37,7 +37,7 @@ func _ready() -> void:
 		spawn_new_balloon_or_cloud())
 	killzone.lost.connect(func():
 		player.lost = true
-		ui.update_score(distance_travelled))
+		ui.show_game_over(distance_travelled))
 
 
 func _process(delta: float) -> void:
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		set_bird_spawn_time()
 	camera.position.x = player.position.x
 	distance_travelled = clamp((player.position.x - origin.position.x) / 100, 0, 100000)
-	ui.get_node("DistanceLabel").text = "Distance: " + str(distance_travelled) + "m"
+	ui.update_score(distance_travelled)
 
 
 func generate_first_obstacles() -> void:
