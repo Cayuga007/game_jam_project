@@ -11,6 +11,6 @@ func _ready() -> void:
 	GameplayMusic.playing = false
 	play.pressed.connect(func():
 		MenuMusic.playing = false
-		get_tree().change_scene_to_file("res://scenes/game.tscn"))
+		get_tree().change_scene_to_file("res://scenes/intro_cut.tscn"))
 	quit.pressed.connect(func():
 		get_tree().quit())

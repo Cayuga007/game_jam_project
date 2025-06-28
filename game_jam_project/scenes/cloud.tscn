@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dt1gm0a5xpgem"]
 
-[ext_resource type="Script" uid="uid://kp50mi7oo8nx" path="res://scripts/cloud.gd" id="1_2kyfr"]
+[ext_resource type="Script" path="res://scripts/cloud.gd" id="1_2kyfr"]
 [ext_resource type="Texture2D" uid="uid://btwhkjnq1ddrt" path="res://assets/sprites/cloud.png" id="2_2kyfr"]
 [ext_resource type="AudioStream" uid="uid://b7iyxmm0vkl4l" path="res://assets/sound/cloud break.wav" id="3_n1qj5"]
 
