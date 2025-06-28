@@ -28,6 +28,9 @@ var distance_travelled: int = 0
 
 
 func _ready() -> void:
+	if not GameplayMusic.playing:
+		GameplayMusic.play()
+	
 	player.position = origin.position
 	generate_first_obstacles()
 	set_bird_spawn_time()
@@ -37,6 +40,7 @@ func _ready() -> void:
 		spawn_new_balloon_or_cloud())
 	killzone.lost.connect(func():
 		player.lost = true
+		player.die.play()
 		ui.show_game_over(distance_travelled))
 
 

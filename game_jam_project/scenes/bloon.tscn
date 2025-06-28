@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://2xqdwui4o5qa"]
+[gd_scene load_steps=20 format=3 uid="uid://2xqdwui4o5qa"]
 
 [ext_resource type="Script" uid="uid://bfwkm20dmhg4n" path="res://scripts/balloon.gd" id="1_emhme"]
 [ext_resource type="Texture2D" uid="uid://pf1w8e4kdlfu" path="res://assets/sprites/Bloon.png" id="1_w75no"]
 [ext_resource type="Texture2D" uid="uid://jher1v1e4q87" path="res://assets/sprites/balloon_blue.png" id="2_whsaj"]
 [ext_resource type="Texture2D" uid="uid://bb3mr7cr1sqim" path="res://assets/sprites/Balloon_yellow.png" id="4_3jygb"]
+[ext_resource type="AudioStream" uid="uid://cv47aelyxga0a" path="res://assets/sound/balloon pop.wav" id="5_3jygb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opfix"]
 atlas = ExtResource("2_whsaj")
@@ -126,3 +127,6 @@ shape = SubResource("CircleShape2D_ogyvl")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.5, -0.75)
 scale = Vector2(1.75, 3.025)
+
+[node name="RemoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3jygb")

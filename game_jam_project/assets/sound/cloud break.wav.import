@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7iyxmm0vkl4l"
+path="res://.godot/imported/cloud break.wav-8781d4ca2f0912ed59baed8e2d688c6e.sample"
+
+[deps]
+
+source_file="res://assets/sound/cloud break.wav"
+dest_files=["res://.godot/imported/cloud break.wav-8781d4ca2f0912ed59baed8e2d688c6e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

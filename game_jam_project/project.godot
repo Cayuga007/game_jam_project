@@ -15,9 +15,15 @@ run/main_scene="uid://dhke2wkovce3b"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameplayMusic="*res://scenes/gameplay_music.tscn"
+MenuMusic="*res://scenes/menu_music.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

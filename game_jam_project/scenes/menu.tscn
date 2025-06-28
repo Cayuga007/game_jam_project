@@ -59,7 +59,7 @@ offset_right = 164.0
 offset_bottom = 152.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 80
-text = "Rooftops"
+text = "Reuphtop"
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="."]
@@ -75,4 +75,21 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 40
 text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 115.0
+offset_right = 46.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit"

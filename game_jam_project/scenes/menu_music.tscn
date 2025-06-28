@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcoefburqnb1n"]
+
+[ext_resource type="AudioStream" uid="uid://da8k86k5yp2y2" path="res://assets/sound/legacyAlli - Coffee Jam with Cream and Sugar.mp3" id="1_ydaxe"]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ydaxe")
+volume_db = 10.0

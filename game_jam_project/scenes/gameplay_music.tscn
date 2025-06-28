@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://drr5awbebl72y"]
+
+[ext_resource type="AudioStream" uid="uid://c4tgvjah6040f" path="res://assets/sound/Lenny Pixels - Stay Connected - 8bit.mp3" id="1_eelk5"]
+
+[node name="GameplayMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_eelk5")
+volume_db = 10.0

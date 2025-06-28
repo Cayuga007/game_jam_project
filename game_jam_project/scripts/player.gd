@@ -8,6 +8,9 @@ const JUMP_VELOCITY = 8.0
 const MAX_JUMP_TIME = 0.25
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var jump: AudioStreamPlayer2D = $Jump
+@onready var die: AudioStreamPlayer2D = $Die
+
 var jumping: bool = false
 var jump_t: float = 0.0
 var lost: bool = false
@@ -30,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jumping = true
 		animated_sprite.play("Jump")
+		jump.play()
 	if Input.is_action_just_released("jump"):
 		jumping = false
 		jump_t = 0.0

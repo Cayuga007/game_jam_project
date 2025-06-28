@@ -17,6 +17,8 @@ func remove_self() -> void:
 	get_node("AnimatedSprite2D").visible = false
 	get_node("CollisionShape2D").queue_free()
 	
+	get_node("RemoveSound").play()
+	
 	var new_vfx
 	if self is Balloon:
 		new_vfx = POP.instantiate()
