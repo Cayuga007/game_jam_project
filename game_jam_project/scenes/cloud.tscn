@@ -22,6 +22,7 @@ animations = [{
 size = Vector2(165, 40.2059)
 
 [node name="AnimatableBody2D" type="CharacterBody2D"]
+scale = Vector2(0.6, 0.8)
 script = ExtResource("1_2kyfr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
