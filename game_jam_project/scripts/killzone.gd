@@ -1,13 +1,8 @@
 extends Area2D
 
-@onready var timer: Timer = $Timer
+signal lost
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("You Died!")
-		timer.start()
-	
-
-
-func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+		lost.emit()

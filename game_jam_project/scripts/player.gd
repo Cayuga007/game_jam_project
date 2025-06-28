@@ -10,8 +10,11 @@ const MAX_JUMP_TIME = 0.25
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var jumping: bool = false
 var jump_t: float = 0.0
+var lost: bool = false
 
 func _physics_process(delta: float) -> void:
+	if lost: return
+	
 	# Add the gravity.
 	if not is_on_floor() and not jumping:
 		velocity += get_gravity() * 2 * delta

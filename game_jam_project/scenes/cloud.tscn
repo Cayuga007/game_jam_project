@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt1gm0a5xpgem"]
+[gd_scene load_steps=6 format=3 uid="uid://dt1gm0a5xpgem"]
 
-[ext_resource type="Script" uid="uid://kp50mi7oo8nx" path="res://scripts/cloud.gd" id="1_2kyfr"]
-[ext_resource type="Texture2D" uid="uid://bs8w3nq8hhlgb" path="res://icon.svg" id="1_vlwrh"]
+[ext_resource type="Script" path="res://scripts/cloud.gd" id="1_2kyfr"]
+[ext_resource type="Texture2D" uid="uid://btwhkjnq1ddrt" path="res://assets/sprites/cloud.png" id="2_2kyfr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1qj5"]
+atlas = ExtResource("2_2kyfr")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vlwrh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vlwrh")
+"texture": SubResource("AtlasTexture_n1qj5")
 }],
 "loop": true,
 "name": &"default",
@@ -15,20 +19,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kyfr"]
-size = Vector2(72, 24)
+size = Vector2(165, 40.2059)
 
 [node name="AnimatableBody2D" type="CharacterBody2D"]
 script = ExtResource("1_2kyfr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
-scale = Vector2(0.571875, 0.196875)
+scale = Vector2(2, 1)
 sprite_frames = SubResource("SpriteFrames_vlwrh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(5.96046e-08, 3.67001)
+scale = Vector2(0.679999, 0.680001)
 shape = SubResource("RectangleShape2D_2kyfr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(1, -9.53674e-07)
-scale = Vector2(3.6, 1.2)
+position = Vector2(1, 0)
+scale = Vector2(6.32565, 2.05603)
