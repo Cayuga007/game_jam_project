@@ -19,14 +19,17 @@ func _ready() -> void:
 			balloon_type = BalloonType.RED
 			rise_speed = RED_SPEED
 			animated_sprite.play("Red_Bloon")
+			particle_color = Color(1, 0, 0)
 		BalloonType.BLUE:
 			balloon_type = BalloonType.BLUE
 			rise_speed = BLUE_SPEED
 			animated_sprite.play("Blue_Bloon")
+			particle_color = Color(0, 0.75, 1)
 		BalloonType.YELLOW:
 			balloon_type = BalloonType.YELLOW
 			rise_speed = YELLOW_SPEED
 			animated_sprite.play("Yellow_Bloon")
+			particle_color = Color(1, 1, 0)
 
 
 func _process(delta: float) -> void:
