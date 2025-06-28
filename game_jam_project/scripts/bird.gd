@@ -10,4 +10,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x -= BIRD_TRAVEL_SPEED * delta
+	if visible_on_screen.is_on_screen():
+		position.x -= BIRD_TRAVEL_SPEED * delta

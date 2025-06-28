@@ -1,5 +1,7 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
+
+signal obstacle_hit
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -22,4 +24,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	velocity.y = JUMP_VELOCITY
+	if body is Balloon or body is Cloud:
+		body.queue_free()
+		obstacle_hit.emit()
+		velocity.y = JUMP_VELOCITY
