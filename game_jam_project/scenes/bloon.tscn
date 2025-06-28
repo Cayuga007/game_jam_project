@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://2xqdwui4o5qa"]
+[gd_scene load_steps=9 format=3 uid="uid://2xqdwui4o5qa"]
 
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="1_emhme"]
 [ext_resource type="Texture2D" uid="uid://pf1w8e4kdlfu" path="res://assets/sprites/Bloon.png" id="1_w75no"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emhme"]
@@ -42,6 +43,7 @@ animations = [{
 radius = 17.0
 
 [node name="Bloon" type="AnimatableBody2D"]
+script = ExtResource("1_emhme")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_opfix")
