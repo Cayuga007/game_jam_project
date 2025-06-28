@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhke2wkovce3b"]
+[gd_scene load_steps=5 format=3 uid="uid://ckh0ho0mqycxi"]
 
 [ext_resource type="Script" uid="uid://dutctmjjap6rn" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://cead32xdai7ei" path="res://assets/sprites/GandalfHardcore City Tiles/City background.png" id="2_vjb58"]
