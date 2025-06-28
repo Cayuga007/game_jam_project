@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://2xqdwui4o5qa"]
+
+[ext_resource type="Texture2D" uid="uid://pf1w8e4kdlfu" path="res://assets/sprites/Bloon.png" id="1_w75no"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emhme"]
+atlas = ExtResource("1_w75no")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmarq"]
+atlas = ExtResource("1_w75no")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whsaj"]
+atlas = ExtResource("1_w75no")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jygb"]
+atlas = ExtResource("1_w75no")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opfix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emhme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmarq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whsaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jygb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogyvl"]
+radius = 17.0
+
+[node name="Bloon" type="AnimatableBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_opfix")
+animation = &"Idle"
+frame_progress = 0.00412309
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_ogyvl")
