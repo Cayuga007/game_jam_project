@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogyvl"]
 radius = 17.0
 
-[node name="Bloon" type="AnimatableBody2D"]
+[node name="Bloon" type="CharacterBody2D"]
 script = ExtResource("1_emhme")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -53,3 +53,7 @@ frame_progress = 0.00412309
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_ogyvl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.5, -0.75)
+scale = Vector2(1.75, 3.025)

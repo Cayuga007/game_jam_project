@@ -2,27 +2,33 @@ extends Node2D
 
 
 const MAX_SAFE_OBSTACLES = 10
-const OBSTACLE_SPACING = 200
+const START_OBSTACLE_X = 125
+const BALLOON_Y = 125
+const OBSTACLE_SPACING = 30
 
 const BIRD_SPAWN_TIMER = 1#15
 const BIRD_SPAWN_OFFSET = 0#5
 const INITIAL_BIRD_SPAWN_OFFSET = 0#10
 
-const BALLOON = preload("res://balloon.tscn")
-const CLOUD = preload("res://cloud.tscn")
-const BIRD = preload("res://bird.tscn")
+const BALLOON = preload("res://scenes/bloon.tscn")
+const CLOUD = preload("res://scenes/cloud.tscn")
+const BIRD = preload("res://scenes/bird.tscn")
 
-var latest_obstacle: Obstacle
+@onready var player: Player = $Player
+@onready var camera: Camera2D = $Player/Camera2D
+
+var obstacle_offset: float = START_OBSTACLE_X
 var time_since_bird_spawn: float = 0.0
 var next_bird_spawn_time: float = 0.0
 
 
 func _ready() -> void:
-	generate_first_balloons()
-	generate_clouds()
-	generate_birds()
+	generate_first_obstacles()
 	set_bird_spawn_time()
 	next_bird_spawn_time += INITIAL_BIRD_SPAWN_OFFSET
+	
+	player.obstacle_hit.connect(func():
+		spawn_new_balloon_or_cloud())
 
 
 func _process(delta: float) -> void:
@@ -32,36 +38,28 @@ func _process(delta: float) -> void:
 		set_bird_spawn_time()
 
 
-func generate_first_balloons() -> void:
-	latest_obstacle = create_new_balloon()
-	latest_obstacle.position = Vector2(250, 500)
-	for i in MAX_SAFE_OBSTACLES:
+func generate_first_obstacles() -> void:
+	var first_obstacle = create_new_balloon()
+	first_obstacle.position = Vector2(START_OBSTACLE_X, BALLOON_Y)
+	for i in range(MAX_SAFE_OBSTACLES):
 		spawn_new_balloon_or_cloud()
-
-
-func generate_clouds() -> void:
-	pass
-
-
-func generate_birds() -> void:
-	pass
 
 
 func create_new_balloon() -> Balloon:
 	var new_balloon = BALLOON.instantiate()
-	get_tree().current_scene.add_child(new_balloon)
+	get_tree().current_scene.call_deferred("add_child", new_balloon)
 	return new_balloon
 
 
 func create_new_bird() -> Bird:
 	var new_bird = BIRD.instantiate()
-	get_tree().current_scene.add_child(new_bird)
+	get_tree().current_scene.call_deferred("add_child", new_bird)
 	return new_bird
 
 
 func create_new_cloud() -> Cloud:
 	var new_cloud = CLOUD.instantiate()
-	get_tree().current_scene.add_child(new_cloud)
+	get_tree().current_scene.call_deferred("add_child", new_cloud)
 	return new_cloud
 
 
@@ -69,12 +67,12 @@ func spawn_new_balloon_or_cloud() -> void:
 	var new_obstacle: Obstacle
 	if randf() < 0.75:
 		new_obstacle = create_new_balloon()
-		new_obstacle.position.y = latest_obstacle.position.y
+		new_obstacle.position.y = BALLOON_Y
 	else:
 		new_obstacle = create_new_cloud()
-		new_obstacle.position.y = randi_range(500, 700)
-	new_obstacle.position.x = latest_obstacle.position.x + OBSTACLE_SPACING
-	latest_obstacle = new_obstacle
+		new_obstacle.position.y = randi_range(BALLOON_Y - 10, BALLOON_Y)
+	obstacle_offset += OBSTACLE_SPACING
+	new_obstacle.position.x = obstacle_offset
 
 
 func spawn_new_bird() -> void:

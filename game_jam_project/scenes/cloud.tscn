@@ -17,7 +17,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kyfr"]
 size = Vector2(72, 24)
 
-[node name="AnimatableBody2D" type="AnimatableBody2D"]
+[node name="AnimatableBody2D" type="CharacterBody2D"]
 script = ExtResource("1_2kyfr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -28,3 +28,7 @@ sprite_frames = SubResource("SpriteFrames_vlwrh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2kyfr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, -9.53674e-07)
+scale = Vector2(3.6, 1.2)
