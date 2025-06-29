@@ -2,7 +2,7 @@ extends Node2D
 
 
 const MAX_SAFE_OBSTACLES = 20
-const START_OBSTACLE_X = 125
+const START_OBSTACLE_X = 175
 const BALLOON_Y = 125
 const OBSTACLE_SPACING = 100
 
